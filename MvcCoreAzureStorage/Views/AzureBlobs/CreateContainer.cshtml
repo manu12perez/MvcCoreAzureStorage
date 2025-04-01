@@ -1,0 +1,19 @@
+﻿<h2 style="color:red">
+	New Container
+</h2>
+
+<p>
+	<a asp-controller="AzureBlobs"
+	   asp-action="Index"
+	   class="btn btn-outline-dark">
+		Back to Containers
+	</a>
+</p>
+
+<form method="post">
+	<label>Container name</label>
+	<input type="text" name="containername" class="form-control" />
+	<button class="btn btn-success">
+		Create
+	</button>
+</form>
