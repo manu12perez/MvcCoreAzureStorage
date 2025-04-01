@@ -1,3 +1,4 @@
+using Azure.Data.Tables;
 using Azure.Storage.Blobs;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using MvcCoreAzureStorage.Services;
@@ -7,11 +8,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 /***********************************************************************************************************/
 string azureKeys = builder.Configuration.GetValue<string>("AzureKeys:StorageAccount");
+
+TableServiceClient tableServiceClient = new TableServiceClient(azureKeys);
 BlobServiceClient blobServiceClient = new BlobServiceClient(azureKeys);
+
+builder.Services.AddTransient<TableServiceClient>(x => tableServiceClient);
 builder.Services.AddTransient<BlobServiceClient>(x => blobServiceClient);
 
 builder.Services.AddTransient<ServiceStorageFiles>();
 builder.Services.AddTransient<ServiceStorageBlobs>();
+builder.Services.AddTransient<ServiceStorageTables>();
 /***********************************************************************************************************/
 builder.Services.AddControllersWithViews();
 

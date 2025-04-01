@@ -65,5 +65,45 @@ namespace MvcCoreAzureStorage.Controllers
             await this.service.DeleteBlobAsync(containername, blobname);
             return RedirectToAction("ListBlobs", new { containername = containername });
         }
+
+        //public async Task<IActionResult> DownloadBlob(string containername, string blobname)
+        //{
+        //    Stream stream = await this.service.DownloadBlobAsync(containername, blobname);
+        //    return File(stream, "application/octet-stream", blobname);
+        //}
+
+        //public async Task<IActionResult> GetBlob(string containername, string blobname)
+        //{
+
+        //    Stream blobStream = await service.DownloadBlobAsync(containername, blobname);
+
+        //    string contentType = GetContentType(blobname);
+
+        //    return File(blobStream, contentType, blobname);
+        //}
+
+        //private string GetContentType(string blobName)
+        //{
+        //    var extension = Path.GetExtension(blobName).ToLower();
+        //    switch (extension)
+        //    {
+        //        case ".jpg":
+        //        case ".jpeg":
+        //            return "image/jpeg";
+        //        case ".png":
+        //            return "image/png";
+        //        case ".gif":
+        //            return "image/gif";
+        //        case ".pdf":
+        //            return "application/pdf";
+        //        case ".txt":
+        //            return "text/plain";
+        //        case ".zip":
+        //            return "application/zip";
+        //        default:
+        //            return "application/octet-stream";
+        //    }
+        //}
     }
 }
+

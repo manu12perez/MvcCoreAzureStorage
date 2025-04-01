@@ -6,6 +6,14 @@
 
 <h1>ListBlobs</h1>
 
+<p>
+    <a asp-controller="AzureBlobs"
+       asp-action="Index"
+       class="btn btn-outline-dark">
+        Back to Containers
+    </a>
+</p>
+
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
@@ -42,7 +50,10 @@
                 @Html.DisplayFor(modelItem => item.Container)
             </td>
             <td>
-                <img src="@item.Url" style="width:70px;height:70px" />
+                @* <a href="@Url.Action("GetBlob", "AzureBlobs", new { containername = item.Container, blobname = item.Nombre })" target="_blank">
+                    Descargar Blob
+                </a> *@
+                <img src="@item.Url" style="width:100px;height:100px" />
             </td>
         </tr>
 }
